@@ -9,12 +9,22 @@ mongoose.connect("mongodb+srv://qvillo:qvillo@cluster0.dshclpc.mongodb.net/?retr
 let Schema = mongoose.Schema;
 
 const recepieSchema = new Schema({
-    title: String,            
-    description: String,      
-    image: {
-      data: Buffer,           
-      contentType: String 
-    }
+  title: {
+    type: String,
+    required: true,
+},
+description: {
+    type: String,
+    required: true,
+},
+image: {
+    type: String, // This stores the image filename or URL
+    required: true,
+},
+category: {
+    type: String,
+    required: true,
+},
 });
 var recepieModel = mongoose.model("users",recepieSchema);
 module.exports = recepieModel;
